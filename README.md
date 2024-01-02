@@ -1,4 +1,14 @@
-This is my compiler version:
+This is eJohnson's compiler version:
+
+```
+Apple clang version 15.0.0 (clang-1500.1.0.2.5)
+Target: arm64-apple-darwin23.2.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+```
+
+
+This is Loren's compiler version:
 
 ```sh
 wikibase-release-pipeline git:(T349806-add-reverse-proxy-to-example) gcc --version
