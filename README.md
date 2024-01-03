@@ -21,3 +21,7 @@ clang -g get_next_line_bonus/*.c *.c -o get_next_line_bonus
 clang -g get_next_line/*.c *.c -o get_next_line
 gcc -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line/*.c *.c -o get_next_line
 ```
+
+# Notes
+
+Tester that returns possibly useful debug thangs: https://github.com/xicodomingues/francinette
