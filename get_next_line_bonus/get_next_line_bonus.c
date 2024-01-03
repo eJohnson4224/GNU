@@ -61,7 +61,7 @@ static char	*read_backup(int fd, char *buff, char *backup)
 
 static char	*make_line(char *backup)
 {
-	int			i;
+	int	i;
 	static char	*line;
 
 	i = 0;
@@ -70,7 +70,7 @@ static char	*make_line(char *backup)
 	line = malloc(sizeof(char) * (i + 2));
 	if (!line)
 	{
-		free(line);
+		free (line);
 		line = NULL;
 		return (NULL);
 	}
@@ -130,8 +130,8 @@ char	*get_next_line(int fd)
 	backup[fd] = read_backup(fd, buff, backup[fd]);
 	if (!backup[fd])
 	{
-		free (backup[fd]);
-		free (buff);
+//		free (backup[fd]);
+//		free (buff);
 		return (NULL);
 	}
 	line = make_line(backup[fd]);

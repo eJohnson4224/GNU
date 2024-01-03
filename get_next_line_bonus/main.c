@@ -15,17 +15,17 @@
 #include <stdio.h>
 
 #define	TEST_FILES_COUNT	8
-#define	TEST_REPETITIONS	3
+#define	TEST_REPETITIONS	100000
 
 const	char	*TEST_FILES[]	=	{
-	"test-files/file.txt",
-	"test-files/file2.txt",
-	"test-files/file3.txt",
-	"test-files/long_line.txt",
-	"test-files/64bit_line.txt",
-	"test-files/64bit_paragraph.txt",
-	"test-files/bar.txt",
-	"test-files/empty.txt"
+    "test-files/file.txt",
+    "test-files/file2.txt",
+    "test-files/file3.txt",
+    "test-files/long_line.txt",
+    "test-files/64bit_line.txt",
+    "test-files/64bit_paragraph.txt",
+    "test-files/bar.txt",
+    "test-files/empty.txt"
 };
 
 int TEST_FDS[TEST_FILES_COUNT];
@@ -53,6 +53,7 @@ int	main(void)
 			char	*line;
 			line = get_next_line(TEST_FDS[test_file_index]);
 			printf("%s: %s\n", TEST_FILES[test_file_index], line);
+			free (line);
 		}
 
 		repetition++;
