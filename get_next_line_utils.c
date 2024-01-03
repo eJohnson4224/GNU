@@ -5,11 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ejohnson <ejohnson@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 22:47:20 by ejohnson          #+#    #+#             */
-/*   Updated: 2023/11/18 22:54:48 by ejohnson         ###   ########.fr       */
+/*   Created: 2023/11/18 23:21:44 by ejohnson          #+#    #+#             */
+/*   Updated: 2023/11/18 23:25:53 by ejohnson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+#include "get_next_line_utils.h"
 
 char	*ft_strchr(const char *s, int c)
 {

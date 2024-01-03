@@ -10,64 +10,51 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
-//#include "get_next_line.h"
+#include "get_next_line_utils.h"
 #include <fcntl.h>
 #include <stdio.h>
 
-/*int	main(void)
-{
-	int		i;
-	int		fd;
-	char	*line;
+const int TEST_REPETITIONS	=	3;
+const	char	*TEST_FILES[]	=	{
+	"test-files/file.txt",
+	"test-files/file2.txt",
+	"test-files/file3.txt",
+	"test-files/long_line.txt",
+	"test-files/64bit_line.txt",
+	"test-files/64bit_paragraph.txt",
+	"test-files/bar.txt",
+	"test-files/empty.txt"
+};
+const	int	TEST_FILES_COUNT	=	8;
+int TEST_FDS[TEST_FILES_COUNT];
 
-	i = 1;
-	fd = open("text.txt", O_RDONLY);
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		printf("\nline %i: %s", i, line);
-		line = get_next_line(fd);
-		if (line == NULL)
-			break;
-		i++;
-	}
-	//printf("line %i: %s", i, line);
-	if (close(fd) == -1)
-	{
-		printf("Failed to close the file\n");
-		return (1);
-	}
-	if (line == NULL)
-		printf("line returns NULL.\n");
-	line = get_next_line(fd);
-	if (line == NULL)
-		printf("line returns NULL.\n");
+int	main(void)
+{	
+	printf("\nRepeating tests  %i times\n", TEST_REPETITIONS);
 
-	return (0);
-}*/
-int	main(void) //bonus test
-{
-	int		fd;
-	int		fd2;
-	int		fd3;
-    char    *line;
-	fd = open("file.txt", O_RDONLY);
-	fd2 = open("file2.txt", O_RDONLY);
-	fd3 = open("file3.txt", O_RDONLY);
-	line = get_next_line(fd);
-	printf("file : %s", line);
-	line = get_next_line(fd2);
-	printf("\nfile2 : %s", line);
-	line = get_next_line(fd3);
-	printf("\nfile3 : %s", line);
-	line = get_next_line(fd3);
-	printf("\nfile3 : %s", line);
-	line = get_next_line(fd2);
-	printf("\nfile2 : %s", line);
-	line = get_next_line(fd);
-	printf("\nfile : %s", line);
-	line = get_next_line(fd);
-	printf("\nfile : %s", line);
+	int test_file_index;
+
+	for (test_file_index = 0; test_file_index < TEST_FILES_COUNT; test_file_index++) {
+		TEST_FDS[test_file_index] = open(TEST_FILES[test_file_index], O_RDONLY);
+	}
+
+	int repetition = 1;
+
+	while (repetition <= TEST_REPETITIONS) {
+		printf("==================================\n");
+		printf("  TEST REPETITION %i\n", repetition);
+		printf("==================================\n\n");
+
+		int test_file_index;
+
+		for (test_file_index = 0; test_file_index < TEST_FILES_COUNT; test_file_index++) {
+			char	*line;
+			line = get_next_line(TEST_FDS[test_file_index]);
+			printf("%s: %s\n", TEST_FILES[test_file_index], line);
+		}
+
+		repetition++;
+	}
+
 	return (0);
 }
