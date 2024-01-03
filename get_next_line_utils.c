@@ -38,6 +38,25 @@ size_t	ft_strlen(const char *c)
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size)
 {
+	size_t	src_len;
+	size_t	i;
+
+	src_len = ft_strlen(src);
+	if (dest_size)
+	{
+		i = 0;
+		while (src[i] != '\0' && i < (dest_size - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+	}
+	return (src_len);
+}
+
+/*size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size)
+{
 	size_t	i;
 
 	i = 0;
@@ -51,7 +70,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size)
 	while (*src++)
 		++i;
 	return (i);
-}
+}*/
 
 void	*ft_memcpy(void *dest, const void *src, size_t leng)
 {

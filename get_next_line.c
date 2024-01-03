@@ -62,7 +62,8 @@ static char	*read_backup(int fd, char *buff, char *backup)
 static char	*make_line(char *backup)
 {
 	int			i;
-	static char	*line;
+	char		*line;
+	// ??? static char	*line;
 
 	i = 0;
 	while (backup[i] && backup[i] != '\n')
