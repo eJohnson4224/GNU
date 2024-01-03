@@ -52,9 +52,9 @@ int	main(void) //bonus test
 	int		fd2;
 	int		fd3;
     char    *line;
-	fd = open("file.txt", O_RDONLY);
-	fd2 = open("file2.txt", O_RDONLY);
-	fd3 = open("file3.txt", O_RDONLY);
+	fd = open("test-files/file.txt", O_RDONLY);
+	fd2 = open("test-files/file2.txt", O_RDONLY);
+	fd3 = open("test-files/file3.txt", O_RDONLY);
 	line = get_next_line(fd);
 	printf("file : %s", line);
 	line = get_next_line(fd2);
