@@ -92,12 +92,15 @@ char	*ft_strdup(const char *s)
 	s_len = ft_strlen(s);
 	address = malloc(sizeof(char) * (s_len + 1));
 	if (!address)
+		// May need to return NULL instead
 		return (0);
 	ft_memcpy(address, (const void *) s, s_len);
 	if (!address)
 	{
+		// This may not be necessary
 		free (address);
 		address = NULL;
+		// May need to return NULL instead
 		return (0);
 	}
 	return ((char *)address);

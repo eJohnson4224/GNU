@@ -70,7 +70,6 @@ static char	*make_line(char *backup)
 	line = malloc(sizeof(char) * (i + 2));
 	if (!line)
 	{
-		free (line);
 		line = NULL;
 		return (NULL);
 	}
@@ -124,17 +123,16 @@ char	*get_next_line(int fd)
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
 	{
-		free (buff);
 		return (NULL);
 	}
 	backup[fd] = read_backup(fd, buff, backup[fd]);
 	if (!backup[fd])
 	{
-//		free (backup[fd]);
-//		free (buff);
+		free (buff);
 		return (NULL);
 	}
 	line = make_line(backup[fd]);
 	backup[fd] = new_backup(backup[fd]);
+	free (buff);
 	return (line);
 }

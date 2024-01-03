@@ -71,7 +71,6 @@ static char	*make_line(char *backup)
 	line = malloc(sizeof(char) * (i + 2));
 	if (!line)
 	{
-		free(line);
 		line = NULL;
 		return (NULL);
 	}
