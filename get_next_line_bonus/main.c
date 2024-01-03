@@ -14,7 +14,9 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-const int TEST_REPETITIONS	=	3;
+#define	TEST_FILES_COUNT	8
+#define	TEST_REPETITIONS	3
+
 const	char	*TEST_FILES[]	=	{
 	"test-files/file.txt",
 	"test-files/file2.txt",
@@ -25,7 +27,7 @@ const	char	*TEST_FILES[]	=	{
 	"test-files/bar.txt",
 	"test-files/empty.txt"
 };
-const	int	TEST_FILES_COUNT	=	8;
+
 int TEST_FDS[TEST_FILES_COUNT];
 
 int	main(void)
