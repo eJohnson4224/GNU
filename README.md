@@ -2,26 +2,36 @@
 
 ## Build and debug
 
+### Command line build for debug
+
+```
+gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line/*.c -o get_next_line
+gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_bonus/*.c -o get_next_line_bonus
+```
+
+### Command line build and dynamical analysis with `valgrind`
+
+Requires a Linux VM but I can do it on my laptop or set you up. Works great and I think is pointing us in all the right directions:
+
+```
+gcc -g -O0 -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_bonus/*.c -o get_next_line_bonus
+valgrind --leak-check=full --track-origins=yes -s ./get_next_line_bonus
+```
+
 ### VS Code
 
-You can build and debug directly in VS Code using the  regular VS Code Debug tab. Currently this is configured to only run `get_next_line_bonus`. We may have to setup a `Makefile` or similar to make it work for both (C function names must be unique). 
+You can build and debug directly in VS Code using the regular VS Code Debug tab. Select a file in the directory of the version you want to build (`get_new_line` or `get_new_line_bonus`). Go to the VS Code Debug area and click play. It should build and debug.
 
 ### XCode
 
-Additionally, you cand build and debug in XCode (which gives some REALLY interesting results) with the provided project (42_get_next_line), but probably isn't currently configured to compile with both `get_next_line` and `get_next_line_bonus` in the file tree.
-
-### Command line (GCC or Clang)
-
-```
-gcc -g get_next_line_bonus/*.c *.c -o get_next_line_bonus
-gcc -g get_next_line/*.c *.c -o get_next_line
-gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_bonus/*.c *.c -o get_next_line_bonus
-
-clang -g get_next_line_bonus/*.c *.c -o get_next_line_bonus
-clang -g get_next_line/*.c *.c -o get_next_line
-gcc -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line/*.c *.c -o get_next_line
-```
+Additionally, you can build and debug in XCode (which gives some REALLY interesting results) for `get_next_line_bonus` by opening the provided *42_get_next_line* XCode project in the `get_next_line_bonus` folder.
 
 # Notes
 
 Tester that returns possibly useful debug thangs: https://github.com/xicodomingues/francinette
+
+# TODOS:
+
+[] Get the code working (duh)
+[] Look into getting a normette linter running either form the command line or in VS Code
+[] Look into OrbStack or UTM for setting-up a Ubuntu 22.04 instance setup with the tools used at 42 for consistency when debugging this and future projects
