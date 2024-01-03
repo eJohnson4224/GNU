@@ -7,6 +7,10 @@ Debug compile command:
 gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_utils.c get_next_line.c main.c
 ```
 
+Tester that returns possibly useful debug thangs:
+```
+https://github.com/xicodomingues/francinette
+```
 
 This is eJohnson's compiler version:
 
