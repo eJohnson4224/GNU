@@ -1,29 +1,23 @@
-Compile command:
-```
-gcc -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_utils.c get_next_line.c main.c
-```
-Debug compile command:
-```
-gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_utils.c get_next_line.c main.c
-```
+# Get Next Line
 
+## Build and debug
 
-This is eJohnson's compiler version:
+### VS Code
+
+You can build and debug directly in VS Code using the  regular VS Code Debug tab. Currently this is configured to only run `get_next_line_bonus`. We may have to setup a `Makefile` or similar to make it work for both (C function names must be unique). 
+
+### XCode
+
+Additionally, you cand build and debug in XCode (which gives some REALLY interesting results) with the provided project (42_get_next_line), but probably isn't currently configured to compile with both `get_next_line` and `get_next_line_bonus` in the file tree.
+
+### Command line (GCC or Clang)
 
 ```
-Apple clang version 15.0.0 (clang-1500.1.0.2.5)
-Target: arm64-apple-darwin23.2.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-```
+gcc -g get_next_line_bonus/*.c *.c -o get_next_line_bonus
+gcc -g get_next_line/*.c *.c -o get_next_line
+# gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_bonus/*.c *.c -o get_next_line_bonus
 
-
-This is Loren's compiler version:
-
-```sh
-wikibase-release-pipeline git:(T349806-add-reverse-proxy-to-example) gcc --version
-Apple clang version 14.0.3 (clang-1403.0.22.14.1)
-Target: arm64-apple-darwin22.6.0
-Thread model: posix
-InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+clang -g get_next_line_bonus/*.c *.c -o get_next_line_bonus
+clang -g get_next_line/*.c *.c -o get_next_line
+gcc -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line/*.c *.c -o get_next_line
 ```
