@@ -8,13 +8,12 @@
         "-fcolor-diagnostics",
         "-fansi-escape-codes",
         "-g",
-        "${workspaceFolder}/get_next_line_bonus/*.c",
-        "${workspaceFolder}/*.c",
+        "${fileDirname}/*.c",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
+        "${workspaceFolder}/build/${fileDirnameBasename}"
       ],
       "options": {
-        "cwd": "${fileDirname}"
+        "cwd": "${workspaceRoot}"
       },
       "problemMatcher": [
         "$gcc"
@@ -32,13 +31,12 @@
       "args": [
         "-fdiagnostics-color=always",
         "-g",
-        "${workspaceFolder}/get_next_line_bonus/*.c",
-        "${workspaceFolder}/*.c",
+        "${fileDirname}/*.c",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
+        "${workspaceFolder}/build/${fileDirnameBasename}"
       ],
       "options": {
-        "cwd": "${fileDirname}"
+        "cwd": "${workspaceRoot}"
       },
       "problemMatcher": [
         "$gcc"

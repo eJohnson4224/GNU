@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebitrus <jebitrus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejohnson <ejohnson@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:23:47 by jebitrus          #+#    #+#             */
 /*   Updated: 2023/08/22 21:34:13 by jebitrus         ###   ########.fr       */

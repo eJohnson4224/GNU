@@ -9,7 +9,7 @@
 /*   Updated: 2023/11/18 23:43:48 by ejohnson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../get_next_line_utils.h"
+#include "get_next_line_utils.h"
 
 char	*ft_strjoin(char *s1, char const *s2)
 {
