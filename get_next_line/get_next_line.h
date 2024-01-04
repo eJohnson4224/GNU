@@ -9,8 +9,8 @@
 /*   Updated: 2023/11/18 23:54:12 by ejohnson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <unistd.h>
 # include <stddef.h>
