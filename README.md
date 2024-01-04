@@ -6,12 +6,11 @@
 
 ```
 cd get_next_line_bonud
-gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line_bonus
+gcc -g -fsanitize=address -O0 -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line_bonus
 ./get_next_line_bonus
 
 cd get_next_line
-gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line_bonus
-./get_next_line
+gcc -g -fsanitize=address -O0 -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line_bonus
 ```
 
 ### Command line build and dynamical analysis with `valgrind`
@@ -21,7 +20,7 @@ Requires a Linux VM but I can do it on my laptop or set you up. Works great and 
 ```
 cd get_next_line_bonus
 gcc -g -O0 -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line_bonus
-valgrind --leak-check=full --track-origins=yes -s ./get_next_line_bonus
+valgrind --tool=memcheck --leak-check=full --track-origins=yes -s ./get_next_line_bonus
 ```
 
 ### VS Code
@@ -41,3 +40,4 @@ Tester that returns possibly useful debug thangs: https://github.com/xicodomingu
 [] Get the code working (duh)
 [] Look into getting a normette linter running either form the command line or in VS Code
 [] Look into OrbStack or UTM for setting-up a Ubuntu 22.04 instance setup with the tools used at 42 for consistency when debugging this and future projects
+[] Make the ultimate 42 Dev vm to run on your Mac and use in VS Code as a dev container: Ubuntu 22.04, normette installed and configured with VS Code plugin, gcc, gdb, valgrind...
