@@ -35,7 +35,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 
 static char	*read_backup(int fd, char *buff, char *backup)
 {
-	int	bytes;
+	long	bytes;
 	int	sentry;
 
 	bytes = 1;
