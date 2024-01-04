@@ -10,7 +10,7 @@ gcc -g -fsanitize=address -O0 -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -
 ./get_next_line_bonus
 
 cd get_next_line
-gcc -g -fsanitize=address -O0 -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line_bonus
+gcc -g -fsanitize=address -O0 -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line
 
 # To compile and run in one command just append ` && get_next_line_bonus` to the above compile command and profit!
 ```

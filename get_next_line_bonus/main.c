@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_utils.h"
+#include "get_next_line_bonus.h"
 #include <fcntl.h>
 #include <stdio.h>
 #include <time.h>
@@ -64,40 +64,3 @@ int	main(void)
 
 	return (0);
 }
-
-// Original test function:
-//
-// int	main(void) //bonus test
-// {
-// 	int	fd;
-// 	int	fd2;
-// 	int	fd3;
-// 	char	*line;
-
-// 	fd	=	open("test-files/file.txt", O_RDONLY);
-// 	fd2	=	open("test-files/file2.txt", O_RDONLY);
-// 	fd3	=	open("test-files/file3.txt", O_RDONLY);
-
-// 	line	=	get_next_line(fd);
-// 	printf("file : %s", line);
-
-// 	line	=	get_next_line(fd2);
-// 	printf("\nfile2 : %s", line);
-
-// 	line	=	get_next_line(fd3);
-// 	printf("\nfile3 : %s", line);
-
-// 	line	=	get_next_line(fd3);
-// 	printf("\nfile3 : %s", line);
-
-// 	line	=	get_next_line(fd2);
-// 	printf("\nfile2 : %s", line);
-
-// 	line	=	get_next_line(fd);
-// 	printf("\nfile : %s", line);
-
-// 	line	=	get_next_line(fd);
-// 	printf("\nfile : %s", line);
-
-// 	return (0);
-// }
