@@ -12,5 +12,5 @@
 - [ ] In VS Code install "Recommended Extensions" (if you don't already have these) and proceed norminette'ing (https://github.com/42School/norminette)
 
 # Misc
-- [ ] Merge my PR to main to be tidy, tag the now running old code at its current HEAD
+- [x] Merge my PR to main to be tidy, tag the now running old code at its current HEAD
 - [ ] Optional: Install Gitlens and OrbStack (so you can easily spin-up Linux machines for testing)
