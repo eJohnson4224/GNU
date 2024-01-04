@@ -35,6 +35,22 @@ void	memzero(char *buff, size_t size)
 	}
 }
 
+void *malloc_and_init(size_t size) {
+    void *ptr = malloc(size);
+
+    if (ptr != NULL) {
+        memzero((char *)ptr, size);
+    }
+
+    return ptr;
+}
+
+void memzero(char *buff, size_t size) {
+    for (size_t i = 0; i < size; i++) {
+        buff[i] = 0;
+    }
+}
+
 char	*ft_strchr(const char *s, int c)
 {
 	if (!(*s))
