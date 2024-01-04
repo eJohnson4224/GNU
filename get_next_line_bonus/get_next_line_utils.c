@@ -99,6 +99,8 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size)
 
 void	*ft_memcpy(void *dest, const void *src, size_t leng)
 {
+	void	*set;
+
 	if (!dest && !src)
 		return (0);
 	set = dest;
@@ -120,7 +122,7 @@ char	*ft_strdup(const char *s)
 	if (!address)
 		// May need to return NULL instead
 		return (0);
-	ft_memcpy(address, (const void *)s, s_len);
+	ft_memcpy(address, (const void *) s, s_len);
 	if (!address)
 	{
 		// This may not be necessary
