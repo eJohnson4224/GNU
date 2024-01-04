@@ -11,6 +11,22 @@
 /* ************************************************************************** */
 #include "get_next_line.h"
 
+void *malloc_and_init(size_t size) {
+    void *ptr = malloc(size);
+
+    if (ptr != NULL) {
+        memzero((char *)ptr, size);
+    }
+
+    return ptr;
+}
+
+void memzero(char *buff, size_t size) {
+    for (size_t i = 0; i < size; i++) {
+        buff[i] = 0;
+    }
+}
+
 char	*ft_strchr(const char *s, int c)
 {
 	if (!(*s))
@@ -71,7 +87,7 @@ char	*ft_strdup(const char *s)
 	size_t	s_len;
 
 	s_len = ft_strlen(s);
-	address = malloc(sizeof(char) * (s_len + 1));
+	address = malloc_and_init(sizeof(char) * (s_len + 1));
 	if (!address)
 		return (0);
 	ft_memcpy(address, (const void *) s, s_len);

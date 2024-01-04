@@ -20,6 +20,8 @@
 #  define BUFFER_SIZE 1
 # endif
 
+void	*malloc_and_init(size_t size);
+void	memzero(char *buff, size_t size);
 size_t	ft_strlen(const char *c);
 size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size);
 void	*ft_memcpy(void *dest, const void *src, size_t leng);
