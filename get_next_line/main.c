@@ -21,17 +21,17 @@ int	main(void)
 	char	*line;
 
 	i = 1;
-	fd = open("file.txt", O_RDONLY);
+	fd = open("text.txt", O_RDONLY);
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
 		printf("\nline %i: %s", i, line);
 		line = get_next_line(fd);
 		if (line == NULL)
-			break ;
+			break;
 		i++;
 	}
-	printf("line %i: %s", i, line);
+	//printf("line %i: %s", i, line);
 	if (close(fd) == -1)
 	{
 		printf("Failed to close the file\n");

@@ -25,12 +25,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		042B3DA72B4705B50000DC88 /* test-files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "test-files"; sourceTree = "<group>"; };
+		04148C922B47477200F2172D /* get_next_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = get_next_line.h; sourceTree = "<group>"; };
+		04148C932B47477200F2172D /* text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text.txt; sourceTree = "<group>"; };
+		04148C942B47477200F2172D /* file.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = file.txt; sourceTree = "<group>"; };
 		042B3DAA2B4707CE0000DC88 /* get_next_line.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = get_next_line.c; sourceTree = "<group>"; };
 		04605E0E2B44CB890070EDDF /* get_next_line */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = get_next_line; sourceTree = BUILT_PRODUCTS_DIR; };
 		04605E112B44CB890070EDDF /* main.c */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 0; };
 		04E5A6882B4538FD00FF2E83 /* get_next_line_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.c; path = get_next_line_utils.c; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 0; };
-		04E5A68A2B4538FD00FF2E83 /* get_next_line_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = get_next_line_utils.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; wrapsLines = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,10 +48,11 @@
 		04605E052B44CB890070EDDF = {
 			isa = PBXGroup;
 			children = (
-				042B3DA72B4705B50000DC88 /* test-files */,
+				04148C942B47477200F2172D /* file.txt */,
+				04148C922B47477200F2172D /* get_next_line.h */,
+				04148C932B47477200F2172D /* text.txt */,
 				042B3DAA2B4707CE0000DC88 /* get_next_line.c */,
 				04E5A6882B4538FD00FF2E83 /* get_next_line_utils.c */,
-				04E5A68A2B4538FD00FF2E83 /* get_next_line_utils.h */,
 				04605E112B44CB890070EDDF /* main.c */,
 				04605E0F2B44CB890070EDDF /* Products */,
 			);
