@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebitrus <jebitrus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ejohnson <ejohnson@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:23:47 by jebitrus          #+#    #+#             */
 /*   Updated: 2023/08/22 21:34:13 by jebitrus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
-//#include "get_next_line.h"
+#include "get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
 
-/*int	main(void)
-{
+int	main(void)
+{	
 	int		i;
 	int		fd;
 	char	*line;
@@ -44,30 +43,5 @@
 	if (line == NULL)
 		printf("line returns NULL.\n");
 
-	return (0);
-}*/
-int	main(void) //bonus test
-{
-	int		fd;
-	int		fd2;
-	int		fd3;
-    char    *line;
-	fd = open("file.txt", O_RDONLY);
-	fd2 = open("file2.txt", O_RDONLY);
-	fd3 = open("file3.txt", O_RDONLY);
-	line = get_next_line(fd);
-	printf("file : %s", line);
-	line = get_next_line(fd2);
-	printf("\nfile2 : %s", line);
-	line = get_next_line(fd3);
-	printf("\nfile3 : %s", line);
-	line = get_next_line(fd3);
-	printf("\nfile3 : %s", line);
-	line = get_next_line(fd2);
-	printf("\nfile2 : %s", line);
-	line = get_next_line(fd);
-	printf("\nfile : %s", line);
-	line = get_next_line(fd);
-	printf("\nfile : %s", line);
 	return (0);
 }

@@ -1,0 +1,13 @@
+{
+  "files.associations": {
+    ".env": "shellscript",
+    "CHANGELOG": "markdown",
+    "README": "markdown",
+    "get_next_line.h": "c",
+    "get_next_line_bonus.h": "c"
+  },
+  "editor.formatOnSave": false,
+  "[c]": {
+    "editor.defaultFormatter": "keyhr.42-c-format"
+  }
+}

@@ -1,33 +1,41 @@
-Compile command:
-```
-gcc -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_utils.c get_next_line.c main.c
-```
-Debug compile command:
-```
-gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_utils.c get_next_line.c main.c
-```
+# Get Next Line
 
-Tester that returns possibly useful debug thangs:
-```
-https://github.com/xicodomingues/francinette
-```
+## Build and debug
 
-This is eJohnson's compiler version:
-
-```
-Apple clang version 15.0.0 (clang-1500.1.0.2.5)
-Target: arm64-apple-darwin23.2.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-```
-
-
-This is Loren's compiler version:
+### Command line build for debug, and run
 
 ```sh
-wikibase-release-pipeline git:(T349806-add-reverse-proxy-to-example) gcc --version
-Apple clang version 14.0.3 (clang-1403.0.22.14.1)
-Target: arm64-apple-darwin22.6.0
-Thread model: posix
-InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+cd get_next_line_bonus
+gcc -g -fsanitize=address -O0 -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line_bonus
+./get_next_line_bonus
+
+cd get_next_line
+gcc -g -fsanitize=address -O0 -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line
+
+# To compile and run in one command just append ` && get_next_line_bonus` to the above compile command and profit!
 ```
+
+_Note the additional `-fsanitize=address` param above. Adding that did cause compilation to fail with a detailed buffer / heap overflow debug trace. Importantly that failure happened equally in both Linux and on MacOS. This should be one of the best ways to compile going forward to make sure things are going to work across both platforms, and ultimately to catch memory allocation issues early._
+
+### Command line build and dynamical analysis with `valgrind`
+
+Requires a Linux VM but I can do it on my laptop or set you up. Works great and I think is pointing us in all the right directions:
+
+```sh
+cd get_next_line_bonus
+gcc -g -O0 -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line_bonus
+valgrind --tool=memcheck --leak-check=full --track-origins=yes -s ./get_next_line_bonus
+```
+
+### VS Code
+
+You can build and debug directly in VS Code using the regular VS Code Debug tab. Select a file in the directory of the version you want to build (`get_new_line` or `get_new_line_bonus`). Go to the VS Code Debug area and click play. It should build and debug.
+
+### XCode
+
+Additionally, you can build and debug in XCode (which gives some REALLY interesting results) for `get_next_line_bonus` by opening the provided *42_get_next_line* XCode project in the `get_next_line_bonus` folder.
+
+# Notes
+
+- `while; do; norminette > norminette_results; sleep 5; done` for CLI refreshing norminette output... Probably useless if you have VS Code setup right.
+- Tester that returns possibly useful debug thangs: https://github.com/xicodomingues/francinette (so much legacy 42 stuff online, a lot to sort through)

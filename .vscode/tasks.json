@@ -1,0 +1,37 @@
+{
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "C/C++: gcc build active file",
+      "command": "/usr/bin/gcc",
+      "args": [
+        "-fdiagnostics-color=always",
+
+        // Note these two are very picky. Comment them out if
+        // having trouble compiling but it also catches actual
+        // issues of course...
+        "-fsanitize=address",
+        "-O0",
+
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-D",
+        "BUFFER_SIZE=1098098",
+        "-g",
+        "${fileDirname}/*.c",
+        "-o",
+        "${fileDirname}/${fileDirnameBasename}"
+      ],
+      "options": {
+        "cwd": "${workspaceRoot}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build",
+      "detail": "Default GCC compilation for 42 C projects"
+    }
+  ],
+  "version": "2.0.0"
+}

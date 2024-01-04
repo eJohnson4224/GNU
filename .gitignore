@@ -1,0 +1,8 @@
+*.dSYM
+*.xcuserstate
+*.out
+main
+build/**/*
+**/.DS_Store
+git_next_line/git_next_line
+git_next_line_bonus/git_next_line_bonus

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ejohnson <ejohnson@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,27 +11,11 @@
 /* ************************************************************************** */
 #include "get_next_line.h"
 
-void *malloc_and_init(size_t size) {
-    void *ptr = malloc(size);
-
-    if (ptr != NULL) {
-        memzero((char *)ptr, size);
-    }
-
-    return ptr;
-}
-
-void memzero(char *buff, size_t size) {
-    for (size_t i = 0; i < size; i++) {
-        buff[i] = 0;
-    }
-}
-
 char	*ft_strchr(const char *s, int c)
 {
 	if (!(*s))
 		return (NULL);
-	while (*s != (const char) c)
+	while (*s != (const char)c)
 	{
 		if (!*s++)
 			return (0);
@@ -54,19 +38,21 @@ size_t	ft_strlen(const char *c)
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size)
 {
+	size_t	src_len;
 	size_t	i;
 
-	i = 0;
-	while (*src && i + 1 < dest_size)
+	src_len = ft_strlen(src);
+	if (dest_size)
 	{
-		++i;
-		*dest++ = *src++;
+		i = 0;
+		while (src[i] != '\0' && i < (dest_size - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	if (i < dest_size)
-		*dest = '\0';
-	while (*src++)
-		++i;
-	return (i);
+	return (src_len);
 }
 
 void	*ft_memcpy(void *dest, const void *src, size_t leng)
@@ -85,17 +71,23 @@ char	*ft_strdup(const char *s)
 {
 	void	*address;
 	size_t	s_len;
+	size_t	i;
+	size_t size;
 
 	s_len = ft_strlen(s);
-	address = malloc_and_init(sizeof(char) * (s_len + 1));
+	size = sizeof(char) * (s_len + 1);
+	address = malloc(size);
 	if (!address)
-		return (0);
+		return (NULL);
+	i = 0;
+	while (i < size)
+		((char *)address)[i++] = 0;
 	ft_memcpy(address, (const void *) s, s_len);
 	if (!address)
 	{
-		free (address);
+		free(address);
 		address = NULL;
-		return (0);
+		return NULL;
 	}
 	return ((char *)address);
 }

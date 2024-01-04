@@ -1,15 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ejohnson <ejohnson@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 23:43:42 by ejohnson          #+#    #+#             */
-/*   Updated: 2023/11/18 23:43:48 by ejohnson         ###   ########.fr       */
+/*   Created: 2023/11/14 15:47:02 by ejohnson          #+#    #+#             */
+/*   Updated: 2023/11/14 16:01:58 by ejohnson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 char	*ft_strjoin(char *s1, char const *s2)
 {
@@ -19,7 +19,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 	if (!s1)
 		s1 = ft_strdup("");
 	len = ft_strlen(s1) + ft_strlen(s2);
-	ptr = malloc_and_init((len + 1) * sizeof(char));
+	ptr = malloc((len + 1) * sizeof(char));
 	if (!ptr)
 	{
 		free(s1);
@@ -62,15 +62,14 @@ static char	*read_backup(int fd, char *buff, char *backup)
 static char	*make_line(char *backup)
 {
 	int			i;
-	static char	*line;
+	char		*line;
 
 	i = 0;
 	while (backup[i] && backup[i] != '\n')
 		i++;
-	line = malloc_and_init(sizeof(char) * (i + 2));
+	line = malloc(sizeof(char) * (i + 2));
 	if (!line)
 	{
-		free(line);
 		line = NULL;
 		return (NULL);
 	}
@@ -98,7 +97,7 @@ static char	*new_backup(char *backup)
 		backup = NULL;
 		return (NULL);
 	}
-	backup_new = (char *)malloc_and_init(sizeof(char) * ((ft_strlen(backup) - i) + 1));
+	backup_new = (char *)malloc(sizeof(char) * ((ft_strlen(backup) - i) + 1));
 	if (!backup_new)
 	{
 		free(backup_new);
@@ -113,28 +112,28 @@ static char	*new_backup(char *backup)
 
 char	*get_next_line(int fd)
 {
-	static char	*backup[FD_MAX];
+	static char	*backup;
 	char		*buff;
 	char		*line;
 
 	buff = NULL;
 	line = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FD_MAX)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buff = malloc_and_init((BUFFER_SIZE + 1) * sizeof(char));
+	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
 	{
 		free (buff);
 		return (NULL);
 	}
-	backup[fd] = read_backup(fd, buff, backup[fd]);
-	if (!backup[fd])
+	backup = read_backup(fd, buff, backup);
+	if (!backup)
 	{
-		free (backup[fd]);
+		free (backup);
 		free (buff);
 		return (NULL);
 	}
-	line = make_line(backup[fd]);
-	backup[fd] = new_backup(backup[fd]);
+	line = make_line(backup);
+	backup = new_backup(backup);
 	return (line);
 }
