@@ -6,11 +6,11 @@
 
 ```
 cd get_next_line_bonud
-gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line/*.c -o get_next_line_bonud
+gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line_bonus
 ./get_next_line_bonus
 
 cd get_next_line
-gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_bonus/*.c -o build/get_next_line_bonus
+gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line_bonus
 ./get_next_line
 ```
 
