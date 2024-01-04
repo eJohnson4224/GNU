@@ -3,7 +3,7 @@
 ## get_next_line_bonus
 
 - [x] Get the code working (duh)
-- [ ] You were saying `get_next_line_utils.h` / `bonus` should be `get_next_line.h` / `bonus`?
+- [x] You were saying `get_next_line_utils.h` / `bonus` should be `get_next_line.h` / `bonus`?
 - [ ] Look at the `test-files/only_newline.txt` case. It is not progressing such that on every iteration its still printing a new line. Should be an easy fix.
 - [ ] norminette `TOO_MANY_FUNCS` in utils 🤤. Split memory functions into another library?
 
