@@ -42,6 +42,11 @@ Tester that returns possibly useful debug thangs: https://github.com/xicodomingu
 # TODOS:
 
 - [x] Get the code working (duh)
+- [ ] Look at the `test-files/only_newline.txt` case. It is not progressing such that on every iteration its still printing a new line. Should be an easy fix.
+- [ ] Apply `malloc_and_init()` and anything else learned in "bonus" back to `get_new_line`, and test
+
+Looking forward:
+
 - [ ] Look into getting a normette linter running either form the command line or in VS Code
 - [ ] Look into OrbStack or UTM for setting-up a Ubuntu 22.04 instance setup with the tools used at 42 for consistency when debugging this and future projects
 - [ ] Make the ultimate 42 Dev vm to run on your Mac and use in VS Code as a dev container: Ubuntu 22.04, normette installed and configured with VS Code plugin, gcc, gdb, valgrind...

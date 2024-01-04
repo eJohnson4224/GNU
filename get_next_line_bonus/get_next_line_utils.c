@@ -11,12 +11,6 @@
 /* ************************************************************************** */
 #include "get_next_line_utils.h"
 
-void memzero(char *buff, size_t size) {
-    for (size_t i = 0; i < size; i++) {
-        buff[i] = 0;
-    }
-}
-
 void *malloc_and_init(size_t size) {
     void *ptr = malloc(size);
 
@@ -25,6 +19,12 @@ void *malloc_and_init(size_t size) {
     }
 
     return ptr;
+}
+
+void memzero(char *buff, size_t size) {
+    for (size_t i = 0; i < size; i++) {
+        buff[i] = 0;
+    }
 }
 
 char	*ft_strchr(const char *s, int c)
@@ -107,11 +107,10 @@ char	*ft_strdup(const char *s)
 
 	s_len = ft_strlen(s);
 
-	address = malloc(sizeof(char) * (s_len + 1));
-	// This was the line that fixed the issue. The remaining memzero
-	// initializations I think are how it should be. `malloc` + `memzero`
-	// should probably go in their own function, e.g. `voice malloc_and_init()`
-	memzero(address, sizeof(char) * (s_len + 1));
+	// Adding the initialiser to this line fixed the issue you were having
+	// The same function has been used now everywhere you were using malloc,
+	// which I think is correct.
+	address = malloc_and_init(sizeof(char) * (s_len + 1));
 	if (!address)
 		// May need to return NULL instead
 		return (0);
