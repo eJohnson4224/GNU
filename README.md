@@ -2,11 +2,16 @@
 
 ## Build and debug
 
-### Command line build for debug
+### Command line build for debug, and run
 
 ```
-gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line/*.c -o get_next_line
-gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_bonus/*.c -o get_next_line_bonus
+cd get_next_line_bonud
+gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line/*.c -o get_next_line_bonud
+./get_next_line_bonus
+
+cd get_next_line
+gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_bonus/*.c -o build/get_next_line_bonus
+./get_next_line
 ```
 
 ### Command line build and dynamical analysis with `valgrind`
@@ -14,7 +19,8 @@ gcc -g -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_bonus/*.c -o g
 Requires a Linux VM but I can do it on my laptop or set you up. Works great and I think is pointing us in all the right directions:
 
 ```
-gcc -g -O0 -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 get_next_line_bonus/*.c -o get_next_line_bonus
+cd get_next_line_bonus
+gcc -g -O0 -Wall -Wextra -Werror -D BUFFER_SIZE=1098098 *.c -o get_next_line_bonus
 valgrind --leak-check=full --track-origins=yes -s ./get_next_line_bonus
 ```
 
