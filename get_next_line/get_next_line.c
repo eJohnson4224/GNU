@@ -9,7 +9,7 @@
 /*   Updated: 2023/11/14 16:01:58 by ejohnson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../get_next_line_utils.h"
+#include "get_next_line_utils.h"
 
 char	*ft_strjoin(char *s1, char const *s2)
 {
@@ -63,7 +63,6 @@ static char	*make_line(char *backup)
 {
 	int			i;
 	char		*line;
-	// ??? static char	*line;
 
 	i = 0;
 	while (backup[i] && backup[i] != '\n')

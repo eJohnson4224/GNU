@@ -28,7 +28,7 @@ int	main(void)
 		printf("\nline %i: %s", i, line);
 		line = get_next_line(fd);
 		if (line == NULL)
-			break;
+			break ;
 		i++;
 	}
 	//printf("line %i: %s", i, line);

@@ -37,15 +37,25 @@ Additionally, you can build and debug in XCode (which gives some REALLY interest
 
 # Notes
 
-Tester that returns possibly useful debug thangs: https://github.com/xicodomingues/francinette
+- `while; do; norminette > norminette_results; sleep 5; done` for CLI refreshing norminette output... Probably useless if you have VS Code setup right.
+- Tester that returns possibly useful debug thangs: https://github.com/xicodomingues/francinette (so much legacy 42 stuff online, a lot to sort through)
 
 # TODOS:
 
-- [x] Get the code working (duh)
-- [ ] Look at the `test-files/only_newline.txt` case. It is not progressing such that on every iteration its still printing a new line. Should be an easy fix.
-- [ ] Apply `malloc_and_init()` and anything else learned in "bonus" back to `get_new_line`, and test
+## get_next_line_bonus
 
-Looking forward:
+- [x] Get the code working (duh)
+- [ ] `get_next_line_utils.h` / `bonus` you were saying should be `get_next_line.h` / `bonus`?
+- [ ] Look at the `test-files/only_newline.txt` case. It is not progressing such that on every iteration its still printing a new line. Should be an easy fix.
+- [ ] Convert for loop to while in `memzero`
+- [ ] norminette `TOO_MANY_FUNCS` in utils 🤤. Split memory functions into another library?
+
+## get_next_line
+
+- [ ] Apply `malloc_and_init()` and anything else learned in "bonus" back to `get_new_line`-- and run tests
+- [ ] In VS Code install "Recommended Extensions" (if you don't already have these) and proceed norminette'ing (https://github.com/42School/norminette)
+
+## Looking forward:
 
 - [ ] Look into getting a normette linter running either form the command line or in VS Code
 - [ ] Look into OrbStack or UTM for setting-up a Ubuntu 22.04 instance setup with the tools used at 42 for consistency when debugging this and future projects

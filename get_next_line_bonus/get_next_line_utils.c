@@ -11,27 +11,35 @@
 /* ************************************************************************** */
 #include "get_next_line_utils.h"
 
-void *malloc_and_init(size_t size) {
-    void *ptr = malloc(size);
+void	*malloc_and_init(size_t size)
+{
+	void	*ptr;
 
-    if (ptr != NULL) {
-        memzero((char *)ptr, size);
-    }
-
-    return ptr;
+	ptr = malloc(size);
+	if (ptr != NULL)
+	{
+		memzero((char *)ptr, size);
+	}
+	return (ptr);
 }
 
-void memzero(char *buff, size_t size) {
-    for (size_t i = 0; i < size; i++) {
-        buff[i] = 0;
-    }
+void	memzero(char *buff, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < size)
+	{
+		buff[i] = 0;
+		i++;
+	}
 }
 
 char	*ft_strchr(const char *s, int c)
 {
 	if (!(*s))
 		return (NULL);
-	while (*s != (const char) c)
+	while (*s != (const char)c)
 	{
 		if (!*s++)
 			return (0);
@@ -74,6 +82,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size)
 /*size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size)
 {
 	size_t	i;
+	void	*set;
 
 	i = 0;
 	while (*src && i + 1 < dest_size)
@@ -90,8 +99,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size)
 
 void	*ft_memcpy(void *dest, const void *src, size_t leng)
 {
-	void	*set;
-
 	if (!dest && !src)
 		return (0);
 	set = dest;
@@ -106,7 +113,6 @@ char	*ft_strdup(const char *s)
 	size_t	s_len;
 
 	s_len = ft_strlen(s);
-
 	// Adding the initialiser to this line fixed the issue you were having
 	// The same function has been used now everywhere you were using malloc,
 	// which I think is correct.
@@ -114,11 +120,11 @@ char	*ft_strdup(const char *s)
 	if (!address)
 		// May need to return NULL instead
 		return (0);
-	ft_memcpy(address, (const void *) s, s_len);
+	ft_memcpy(address, (const void *)s, s_len);
 	if (!address)
 	{
 		// This may not be necessary
-		free (address);
+		free(address);
 		address = NULL;
 		// May need to return NULL instead
 		return (0);

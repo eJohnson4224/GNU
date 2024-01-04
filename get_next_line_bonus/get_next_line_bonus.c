@@ -36,7 +36,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 static char	*read_backup(int fd, char *buff, char *backup)
 {
 	long	bytes;
-	int sentry;
+	int		sentry;
 
 	bytes = 1;
 	sentry = 1;
@@ -61,7 +61,7 @@ static char	*read_backup(int fd, char *buff, char *backup)
 
 static char	*make_line(char *backup)
 {
-	int	i;
+	int			i;
 	static char	*line;
 
 	i = 0;
@@ -76,7 +76,7 @@ static char	*make_line(char *backup)
 	ft_strlcpy(line, backup, i + 2);
 	if (line[0] == '\0')
 	{
-		free (line);
+		free(line);
 		line = NULL;
 		return (NULL);
 	}
@@ -97,7 +97,9 @@ static char	*new_backup(char *backup)
 		backup = NULL;
 		return (NULL);
 	}
-	backup_new = (char *)malloc_and_init(sizeof(char) * ((ft_strlen(backup) - i) + 1));
+	backup_new = (char *)malloc_and_init(
+			sizeof(char) * ((ft_strlen(backup) - i) + 1)
+			);
 	if (!backup_new)
 	{
 		free(backup_new);
