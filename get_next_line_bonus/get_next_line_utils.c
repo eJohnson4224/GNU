@@ -11,6 +11,22 @@
 /* ************************************************************************** */
 #include "get_next_line_utils.h"
 
+void memzero(char *buff, size_t size) {
+    for (size_t i = 0; i < size; i++) {
+        buff[i] = 0;
+    }
+}
+
+void *malloc_and_init(size_t size) {
+    void *ptr = malloc(size);
+
+    if (ptr != NULL) {
+        memzero((char *)ptr, size);
+    }
+
+    return ptr;
+}
+
 char	*ft_strchr(const char *s, int c)
 {
 	if (!(*s))
@@ -90,7 +106,12 @@ char	*ft_strdup(const char *s)
 	size_t	s_len;
 
 	s_len = ft_strlen(s);
+
 	address = malloc(sizeof(char) * (s_len + 1));
+	// This was the line that fixed the issue. The remaining memzero
+	// initializations I think are how it should be. `malloc` + `memzero`
+	// should probably go in their own function, e.g. `voice malloc_and_init()`
+	memzero(address, sizeof(char) * (s_len + 1));
 	if (!address)
 		// May need to return NULL instead
 		return (0);

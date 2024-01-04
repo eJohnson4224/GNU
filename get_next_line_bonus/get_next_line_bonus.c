@@ -20,6 +20,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 		s1 = ft_strdup("");
 	len = ft_strlen(s1) + ft_strlen(s2);
 	ptr = malloc((len + 1) * sizeof(char));
+	memzero(ptr, (len + 1) * sizeof(char));
 	if (!ptr)
 	{
 		free(s1);
@@ -68,6 +69,7 @@ static char	*make_line(char *backup)
 	while (backup[i] && backup[i] != '\n')
 		i++;
 	line = malloc(sizeof(char) * (i + 2));
+	memzero(line, sizeof(char) * (i + 2));
 	if (!line)
 	{
 		line = NULL;
@@ -98,6 +100,7 @@ static char	*new_backup(char *backup)
 		return (NULL);
 	}
 	backup_new = (char *)malloc(sizeof(char) * ((ft_strlen(backup) - i) + 1));
+	memzero(backup_new, sizeof(char) * ((ft_strlen(backup) - i) + 1));
 	if (!backup_new)
 	{
 		free(backup_new);
@@ -121,6 +124,7 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FD_MAX)
 		return (NULL);
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	memzero(buff, ((BUFFER_SIZE + 1) * sizeof(char)));
 	if (!buff)
 	{
 		return (NULL);
