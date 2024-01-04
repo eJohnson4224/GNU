@@ -1,6 +1,0 @@
-apple
-banana
-cranberry
-(next line is blank)
-
-durien  (without a linebreak)
