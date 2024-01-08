@@ -72,7 +72,7 @@ char	*ft_strdup(const char *s)
 	void	*address;
 	size_t	s_len;
 	size_t	i;
-	size_t size;
+	size_t	size;
 
 	s_len = ft_strlen(s);
 	size = sizeof(char) * (s_len + 1);
@@ -87,7 +87,7 @@ char	*ft_strdup(const char *s)
 	{
 		free(address);
 		address = NULL;
-		return NULL;
+		return (NULL);
 	}
 	return ((char *)address);
 }
